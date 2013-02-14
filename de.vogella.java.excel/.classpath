@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/poi-scratchpad-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/commons-codec-1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/junit-3.8.1.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/jxl.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/log4j-1.2.13.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/poi-3.5-FINAL-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/poi-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/poi-examples-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/poi-excelant-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/poi-ooxml-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/poi-ooxml-schemas-3.9-20121203.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
