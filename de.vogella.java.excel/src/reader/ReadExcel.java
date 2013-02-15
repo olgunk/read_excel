@@ -51,18 +51,20 @@ public class ReadExcel {
 	  
 
 	  String ZINT_BINARY="C:\\Programme\\Zint\\zint.exe";
-	  String image_filename="resim.png";
+	  String image_filename="olgun_beste_gaymis.png";
 	  String ZINT_RSS_EXPANDED_CODE = "31"; //laaan hayirli sayi, rss_expanded code
 	  String barcode = ean.getContents()+ mhd.getContents()+datum.getContents();
 	//  String kommando = ZINT_BINARY + " -o " + image_filename + " -b " + ZINT_RSS_EXPANDED_CODE + " -d \"" + barcode +"\""; //1min
 	  
 	  //System.out.println(kommando);
-	  ProcessBuilder pb =  new ProcessBuilder(ZINT_BINARY, "-o "+image_filename, "-b "+ZINT_RSS_EXPANDED_CODE, "-d \"" +barcode+ "\"");
-	  Process process = pb.start();
+	  String test = ZINT_BINARY+ " -o "+image_filename+ " -b "+ZINT_RSS_EXPANDED_CODE+ " -d \"" +barcode+ "\"";
+	  System.out.println(test);
+	  
+	  Runtime.getRuntime().exec(test);
 	  
 	  
-	  
-	  
+//	  ProcessBuilder pb =  new ProcessBuilder("cmd", ZINT_BINARY, "-o "+image_filename, "-b "+ZINT_RSS_EXPANDED_CODE, "-d \"" +barcode+ "\"");
+//	  Process process = pb.start();
     
       
 //      for (int j = 0; j < sheet.getColumns(); j++) {
