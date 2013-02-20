@@ -38,7 +38,7 @@ public class ReadExcel {
       String ZINT_RSS_EXPANDED_CODE = "31"; //laaan\\ hayirli sayi, rss_expanded code
       Cell temp;
       String barcode = "";
-     // System.out.println(image_filename);
+     System.out.println(image_filename);
       for (int y = 2; y < 22; y++) {
      	 System.out.println("");
        for (int x = 1; x < 6; x++) {
