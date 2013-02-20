@@ -14,5 +14,14 @@
 	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/poi-excelant-3.9-20121203.jar"/>
 	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/poi-ooxml-3.9-20121203.jar"/>
 	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/poi-ooxml-schemas-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/itext/itext-xtra-5.4.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/itext/itextpdf-5.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/itext/itextpdf-5.4.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/itext/itextpdf-5.4.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/itext/itext-pdfa-5.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/itext/itext-pdfa-5.4.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/itext/itext-pdfa-5.4.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/itext/itext-xtra-5.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/okutrag/Desktop/lib/itext/itext-xtra-5.4.0-javadoc.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
