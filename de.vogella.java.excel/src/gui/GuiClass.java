@@ -24,15 +24,15 @@ public class GuiClass extends JFrame {
     }
 
     public final void initUI() {
-
+    	
        JPanel panel = new JPanel();
        getContentPane().add(panel);
 
        panel.setLayout(null);
  
-       JButton quitButton = new JButton("Barcode Liste");
-       quitButton.setBounds(160, 80, 120, 80);
-       quitButton.addActionListener(new ActionListener() {
+       JButton editButton = new JButton("Barcode Liste");
+       editButton.setBounds(160, 35, 130, 80);
+       editButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent event) {
         	   String programm = "C:\\Program Files (x86)\\OpenOffice.org 3\\program\\scalc.exe";
         	   String file = excelfile;
@@ -44,9 +44,11 @@ public class GuiClass extends JFrame {
 			}
           }
        });
+       
+       
 
        JButton generateButton = new JButton("Generate");
-       generateButton.setBounds(30, 80, 120, 80);
+       generateButton.setBounds(10, 35, 130, 80);
        generateButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent event) {
         	   createpdf crpdf = new createpdf();
@@ -54,10 +56,21 @@ public class GuiClass extends JFrame {
         	   }
        });
        
-       panel.add(quitButton);
+       JButton quitButton = new JButton("Quit");
+       quitButton.setBounds(110, 140, 80, 30);
+       quitButton.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent event) {
+               System.exit(0);
+          }
+       });
+
+      
+       
+       panel.add(editButton);
        panel.add(generateButton);
+       panel.add(quitButton);
        setTitle("Generate Barcodes");
-       setSize(300, 200);
+       setSize(320, 220);
        setLocationRelativeTo(null);
        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
