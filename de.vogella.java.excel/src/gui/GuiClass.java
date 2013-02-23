@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import pdf.createpdf;
 
 
 public class GuiClass extends JFrame {
@@ -28,9 +29,9 @@ public class GuiClass extends JFrame {
        getContentPane().add(panel);
 
        panel.setLayout(null);
-
-       JButton quitButton = new JButton("Quit");
-       quitButton.setBounds(50, 60, 80, 30);
+ 
+       JButton quitButton = new JButton("Barcode Liste");
+       quitButton.setBounds(160, 80, 120, 80);
        quitButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent event) {
         	   String programm = "C:\\Program Files (x86)\\OpenOffice.org 3\\program\\scalc.exe";
@@ -45,11 +46,12 @@ public class GuiClass extends JFrame {
        });
 
        JButton generateButton = new JButton("Generate");
-       generateButton.setBounds(50, 60, 80, 30);
+       generateButton.setBounds(30, 80, 120, 80);
        generateButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent event) {
-        	
-          }
+        	   createpdf crpdf = new createpdf();
+        	   crpdf.main(null);
+        	   }
        });
        
        panel.add(quitButton);
@@ -58,6 +60,15 @@ public class GuiClass extends JFrame {
        setSize(300, 200);
        setLocationRelativeTo(null);
        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+    
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                GuiClass ex = new GuiClass();
+                ex.setVisible(true);
+            }
+        });
     }
 
 }

@@ -40,7 +40,6 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Image;
 
-import gui.GuiClass;
 
 public class createpdf {
 	private static String FILE = "storeMate_Rossmann_GS1-MHD-Verfall_Codes.pdf";
@@ -55,12 +54,6 @@ public class createpdf {
 	private static String kopfheader = "C:\\Users\\Olgun\\git\\read_excel\\de.vogella.java.excel\\Kopf.png";
 	
 	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                GuiClass ex = new GuiClass();
-                ex.setVisible(true);
-            }
-        });
 		try {
 			ReadExcel excelTabelle = new ReadExcel();
 			excelTabelle.setInputFile(excelfile);
