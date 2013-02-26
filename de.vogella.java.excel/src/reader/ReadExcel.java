@@ -25,8 +25,8 @@ public class ReadExcel {
 
   public void read() throws IOException  {
 	  Sheet sheet = excselinhalt();
-      String ZINT_BINARY="C:\\Users\\Olgun\\git\\read_excel\\de.vogella.java.excel\\zint\\zint.exe";
-      String dir_name = "C:\\Barcodes\\";
+      String ZINT_BINARY="zint\\zint.exe";
+      String dir_name = "Barcodes\\";
       File dir= new File(dir_name);
       dir.mkdir();
       String image_filename= dir_name + "Barcodes";
@@ -38,7 +38,8 @@ public class ReadExcel {
      	 System.out.println("");
        for (int x = 1; x < 6; x++) {
     	   temp = sheet.getCell(x, y);
-    	   barcode = barcode + temp.getContents();     
+    	   barcode = barcode + temp.getContents(); 
+    	   //System.out.println(barcode);
        }
        String test = ZINT_BINARY+ " -o "+ image_filename+y+".png" + " -b "+ZINT_RSS_EXPANDED_CODE+ " -d \"" +barcode+ "\"";        	  
        Runtime.getRuntime().exec(test);
@@ -55,6 +56,7 @@ public class ReadExcel {
 			for (int x = 1; x < 3; x++) {
 				temp = sheet.getCell(x, y);
 				barcode = barcode + temp.getContents();
+				//System.out.println(barcode);
 			}
 			count += 1;
 		}
@@ -77,6 +79,8 @@ public class ReadExcel {
 			for (int x = 1; x < 6; x++) {
 				temp = sheet.getCell(x, y);
 				barcode = barcode + temp.getContents() + ";";
+				
+			
 			}
 			headers.add(barcode);
 			barcode = "";

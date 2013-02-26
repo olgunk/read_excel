@@ -17,7 +17,7 @@ public class GuiClass extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static String excelfile = "C:\\Users\\Olgun\\git\\read_excel\\de.vogella.java.excel\\BarcodeLi.xls";
+	private static String excelfile = "BarcodeLi.xls";
 
 	public GuiClass() {
         initUI();
@@ -34,7 +34,7 @@ public class GuiClass extends JFrame {
        editButton.setBounds(160, 35, 130, 80);
        editButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent event) {
-        	   String programm = "C:\\Program Files (x86)\\OpenOffice.org 3\\program\\scalc.exe";
+        	   String programm = "C:\\Programme\\OpenOffice.org 3\\program\\scalc.exe";
         	   String file = excelfile;
         	   try {
 				Runtime.getRuntime().exec(programm+ " " +file);
