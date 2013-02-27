@@ -60,7 +60,7 @@ public class ReadExcel {
   
   public String getExcelTabelleEinEintrag(Sheet sheet, int x, int y) {
 	  Cell temp = sheet.getCell(x, y);
-	  String content = temp.getContents(); 
+	  String content = temp.getContents();
 	  return content;
   }
 
@@ -74,8 +74,6 @@ public class ReadExcel {
 			for (int x = 1; x < 6; x++) {
 				temp = sheet.getCell(x, y);
 				barcode = barcode + temp.getContents() + ";";
-				
-			
 			}
 			headers.add(barcode);
 			barcode = "";

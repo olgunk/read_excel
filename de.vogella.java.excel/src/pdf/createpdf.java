@@ -30,7 +30,7 @@ public class createpdf {
 	private static String excelfile = "BarcodeLi.xls";
 	private static String kopfheader = "Kopf.png";
 
-	public static void main(String[] args) {
+	public void main(String[] args) {
 		try {
 			ReadExcel excelTabelle = new ReadExcel();
 			excelTabelle.setInputFile(excelfile);
