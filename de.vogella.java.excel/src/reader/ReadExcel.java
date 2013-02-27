@@ -5,18 +5,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
-
 import jxl.Cell;
-import jxl.CellType;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
 public class ReadExcel {
   private String inputFile;
-  private String[] barcodeliste;
   public void setInputFile(String inputFile) { 
     this.inputFile = inputFile;
   }
@@ -33,7 +28,7 @@ public class ReadExcel {
       String ZINT_RSS_EXPANDED_CODE = "31"; 
       Cell temp;
       String barcode = "";
-      System.out.println(image_filename);
+      System.out.println(barcode);
       for (int y = 2; y < 22; y++) {
      	 System.out.println("");
        for (int x = 1; x < 6; x++) {

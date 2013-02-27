@@ -11,6 +11,8 @@ import javax.swing.SwingUtilities;
 import pdf.createpdf;
 
 
+
+
 public class GuiClass extends JFrame {
 
     /**
@@ -30,9 +32,11 @@ public class GuiClass extends JFrame {
 
        panel.setLayout(null);
  
-       JButton editButton = new JButton("Barcode Liste");
-       editButton.setBounds(160, 35, 130, 80);
-       editButton.addActionListener(new ActionListener() {
+       JButton openExcelButton = new JButton("<html><center>Excel Liste<br>öffnen</center></html>");
+       openExcelButton.setToolTipText("Öffnet die Ecxel Liste mit den Barcodes");
+       openExcelButton.setBounds(180, 25, 100, 80);
+       ///                 posX posY sizeX sizeY
+       openExcelButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent event) {
         	   String programm = "C:\\Programme\\OpenOffice.org 3\\program\\scalc.exe";
         	   String file = excelfile;
@@ -46,9 +50,9 @@ public class GuiClass extends JFrame {
        });
        
        
-
-       JButton generateButton = new JButton("Generate");
-       generateButton.setBounds(10, 35, 130, 80);
+       JButton generateButton = new JButton("<html><center>Barcodes<br>erstellen</center></html>");
+       generateButton.setToolTipText("Button zum erstellen der Barcodes");
+       generateButton.setBounds(10, 25, 100, 80);
        generateButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent event) {
         	   createpdf crpdf = new createpdf();
@@ -57,7 +61,7 @@ public class GuiClass extends JFrame {
        });
        
        JButton quitButton = new JButton("Quit");
-       quitButton.setBounds(110, 140, 80, 30);
+       quitButton.setBounds(5, 140, 280, 30);
        quitButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent event) {
                System.exit(0);
@@ -66,11 +70,11 @@ public class GuiClass extends JFrame {
 
       
        
-       panel.add(editButton);
+       panel.add(openExcelButton);
        panel.add(generateButton);
        panel.add(quitButton);
        setTitle("Generate Barcodes");
-       setSize(320, 220);
+       setSize(300, 220);
        setLocationRelativeTo(null);
        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }

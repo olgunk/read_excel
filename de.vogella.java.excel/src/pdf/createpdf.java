@@ -4,53 +4,25 @@ import reader.ReadExcel;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.util.Date;
 import java.util.List;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-
-import jxl.Cell;
-import jxl.CellType;
 import jxl.Sheet;
-import jxl.Workbook;
-import jxl.read.biff.BiffException;
-import org.w3c.dom.Text;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import reader.ReadExcel;
-
-import com.itextpdf.text.Anchor;
-import com.itextpdf.text.BadElementException;
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Chapter;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
-import com.itextpdf.text.Header;
-
-import com.itextpdf.text.ListItem;
 import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Section;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Image;
 
 
 public class createpdf {
 	private static String FILE = "storeMate_Rossmann_GS1-MHD-Verfall_Codes.pdf";
-	private static Font catFont = new Font(Font.FontFamily.COURIER, 18,
-	        Font.BOLD);
 	private static Font canoFont = new Font(Font.FontFamily.COURIER, 18,
-	        Font.BOLD);
-	private static Font smallBold = new Font(Font.FontFamily.COURIER, 12,
 	        Font.BOLD);
 	private static Font normal = new Font(Font.FontFamily.COURIER, 16,
 	        Font.BOLD);
@@ -172,11 +144,11 @@ public class createpdf {
 			document.add(new Paragraph(productHeader.get(i)));
 			Image barcode = Image.getInstance("Barcodes\\Barcodes" + i + ".png");
 			barcode.setAlignment(Image.LEFT);
-			barcode.scalePercent(25);
+			barcode.scalePercent(40);
 			document.add(new Paragraph(barcodeliste.get(i-2).replace(";", "")));
 			document.add(barcode);
 			document.add(Chunk.NEWLINE);
-			document.add(Chunk.NEWLINE);
+			
 			
 			if (i != count + 1) {
 				
