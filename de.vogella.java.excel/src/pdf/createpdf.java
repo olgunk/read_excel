@@ -128,7 +128,7 @@ public class createpdf {
 				document.add(Chunk.NEWLINE);
 			}
 			else if (i == 7) {				
-				document.add(new Paragraph("Artikel nur mit Verfallsdatum(MHD)", canoFont));
+				document.add(new Paragraph("Artikel nur mit Verfallsdatum(VFD)", canoFont));
 				document.add(Chunk.NEWLINE);
 			}
 			else if (i == 12) {				
