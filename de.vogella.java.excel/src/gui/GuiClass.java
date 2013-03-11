@@ -3,9 +3,11 @@ package gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import pdf.createpdf;
@@ -20,6 +22,7 @@ public class GuiClass extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private static String excelfile = "BarcodeLi.xls";
+	private Object scrollPane;
 
 	public GuiClass() {
         initUI();
@@ -29,16 +32,20 @@ public class GuiClass extends JFrame {
     	
        JPanel panel = new JPanel();
        getContentPane().add(panel);
-
        panel.setLayout(null);
- 
+       
+       JOptionPane.showMessageDialog(null, "Bevor Sie die Barcodes erstellen," + "\n" +
+       		"Excel Datei öffnen und Makro ausführen", "Vorsicht!", JOptionPane.WARNING_MESSAGE);
+       
+       
+       
        JButton openExcelButton = new JButton("<html><center>Excel Liste<br>öffnen</center></html>");
        openExcelButton.setToolTipText("Öffnet die Ecxel Liste mit den Barcodes");
-       openExcelButton.setBounds(180, 25, 100, 80);
+       openExcelButton.setBounds(10, 25, 100, 80);
        ///                 posX posY sizeX sizeY
        openExcelButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent event) {
-        	   String programm = "C:\\Programme\\OpenOffice.org 3\\program\\scalc.exe";
+        	   String programm = "C:/Programme/Microsoft Office/OFFICE11/EXCEL.EXE";
         	   String file = excelfile;
         	   try {
 				Runtime.getRuntime().exec(programm+ " " +file);
@@ -52,7 +59,7 @@ public class GuiClass extends JFrame {
        
        JButton generateButton = new JButton("<html><center>Barcodes<br>erstellen</center></html>");
        generateButton.setToolTipText("Button zum erstellen der Barcodes");
-       generateButton.setBounds(10, 25, 100, 80);
+       generateButton.setBounds(180, 25, 100, 80);
        generateButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent event) {
         	   createpdf crpdf = new createpdf();
