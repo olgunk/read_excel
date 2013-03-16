@@ -1,33 +1,48 @@
+/*
+ * 
+ */
 package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+
 import pdf.createpdf;
 
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GuiClass.
+ */
 public class GuiClass extends JFrame {
 
-    /**
-	 * 
-	 */
+    /** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The excelfile. */
 	private static String excelfile = "BarcodeLi.xls";
+	
+	/** The scroll pane. */
 	private Object scrollPane;
 
+	/**
+	 * Instantiates a new gui class.
+	 */
 	public GuiClass() {
         initUI();
     }
 
+    /**
+     * Inits the ui.
+     */
     public final void initUI() {
     	
        JPanel panel = new JPanel();
@@ -45,7 +60,7 @@ public class GuiClass extends JFrame {
        ///                 posX posY sizeX sizeY
        openExcelButton.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent event) {
-        	   String programm = "C:/Programme/Microsoft Office/OFFICE11/EXCEL.EXE";
+        	   String programm = "C:/Program Files (x86)/Microsoft Office/Office14/EXCEL.EXE";
         	   String file = excelfile;
         	   try {
 				Runtime.getRuntime().exec(programm+ " " +file);
@@ -64,7 +79,9 @@ public class GuiClass extends JFrame {
            public void actionPerformed(ActionEvent event) {
         	   createpdf crpdf = new createpdf();
         	   crpdf.main(null);
-        	   }
+        	   
+        	   EntscheidungsfensterClass.main(null);
+           }
        });
        
        JButton quitButton = new JButton("Quit");
@@ -86,6 +103,11 @@ public class GuiClass extends JFrame {
        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
     
+    /**
+     * The main method.
+     *
+     * @param args the arguments
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -94,5 +116,23 @@ public class GuiClass extends JFrame {
             }
         });
     }
+
+	/**
+	 * Gets the scroll pane.
+	 *
+	 * @return the scroll pane
+	 */
+	public Object getScrollPane() {
+		return scrollPane;
+	}
+
+	/**
+	 * Sets the scroll pane.
+	 *
+	 * @param scrollPane the new scroll pane
+	 */
+	public void setScrollPane(Object scrollPane) {
+		this.scrollPane = scrollPane;
+	}
 
 }

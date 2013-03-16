@@ -1,6 +1,11 @@
+/*
+ * 
+ */
 package pdf;
 
 import reader.ReadExcel;
+
+import java.io.Console;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -20,16 +25,34 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Image;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class createpdf.
+ */
 public class createpdf {
+	
+	/** The file. */
 	private static String FILE = "storeMate_Rossmann_GS1-MHD-Verfall_Codes.pdf";
+	
+	/** The cano font. */
 	private static Font canoFont = new Font(Font.FontFamily.COURIER, 18,
 	        Font.BOLD);
+	
+	/** The normal. */
 	private static Font normal = new Font(Font.FontFamily.COURIER, 16,
 	        Font.BOLD);
 	
+	/** The excelfile. */
 	private static String excelfile = "BarcodeLi.xls";
+	
+	/** The kopfheader. */
 	private static String kopfheader = "Kopf.png";
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public void main(String[] args) {
 		try {
 			ReadExcel excelTabelle = new ReadExcel();
@@ -49,6 +72,14 @@ public class createpdf {
 		}
 	}
 	
+	/**
+	 * Titel_seite.
+	 *
+	 * @param document the document
+	 * @throws DocumentException the document exception
+	 * @throws MalformedURLException the malformed url exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	private static void titel_seite(Document document) throws DocumentException, MalformedURLException, IOException {
 	
 		Image image1 = Image.getInstance("kopf.png");
@@ -86,6 +117,12 @@ public class createpdf {
 	}
 	
 	
+	/**
+	 * Adds the title page.
+	 *
+	 * @param document the document
+	 * @throws DocumentException the document exception
+	 */
 	private static void addTitlePage(Document document)
 	        throws DocumentException {
 		Paragraph preface = new Paragraph();
@@ -106,13 +143,20 @@ public class createpdf {
 		
 	}
 	
+	/**
+	 * Adds the content.
+	 *
+	 * @param document the document
+	 * @throws DocumentException the document exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	private static void addContent(Document document) throws DocumentException,
 	        IOException {
 		/*      Variablen   deklaration */
 		List<String> productHeader = getProductHeader();
 		List<String> barcodeliste = getProductList();
 		int count = getImageCount();
-		int totalPage = getTotalPageNumber();
+		int totalPage = getTotalPageNumber()-1; //getTotalPageNumber becerermedik deswegen -1
 		int pageCount = 0;
 		int neueseite = 1;
 		Paragraph seite = new Paragraph();
@@ -124,7 +168,7 @@ public class createpdf {
 		header_image.scalePercent(50);
 		document.add(header_image);
 		
-		for (int i = 2; i <= count + 1; i++) {
+		for (int i = 2; i <= count+1; i++) {
 			if (i == 2) {				
 				document.add(new Paragraph("Artikel nur mit Mindesthaltbarkeitsdatum (MHD)", canoFont));
 				document.add(Chunk.NEWLINE);
@@ -138,7 +182,7 @@ public class createpdf {
 				document.add(Chunk.NEWLINE);
 			}
 			else if (i == 20) {		
-				document.newPage();
+				//document.newPage();
 				document.add(new Paragraph("Artikel mit MHD und Verfallsdatum: Sonderfall01", canoFont));
 				document.add(Chunk.NEWLINE);
 			}
@@ -150,11 +194,9 @@ public class createpdf {
 			document.add(new Paragraph(barcodeliste.get(i-2).replace(";", "")));
 			document.add(barcode);
 			document.add(Chunk.NEWLINE);
-			
-			
-			if (i != count + 1) {
-				
-				if (neueseite % 5 == 0) {
+
+			if (i != count) {
+				if ((neueseite % 5) == 0) {
 			
 					
 					pageCount += 1;
@@ -164,8 +206,10 @@ public class createpdf {
 					seite.add(chunk);
 					document.add(seite);
 					seite.removeAll(seite);
-					document.newPage();
-					document.add(header_image);
+					if (pageCount != totalPage) {
+						document.newPage();
+						document.add(header_image);						
+					}
 					
 				}
 			}
@@ -174,12 +218,24 @@ public class createpdf {
 		}
 	}
 	
+	/**
+	 * Adds the empty line.
+	 *
+	 * @param paragraph the paragraph
+	 * @param number the number
+	 */
 	private static void addEmptyLine(Paragraph paragraph, int number) {
 		for (int i = 0; i < number; i++) {
 			paragraph.add(new Paragraph(""));
 		}
 	}
 	
+	/**
+	 * Gets the total page number.
+	 *
+	 * @return the total page number
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public static int getTotalPageNumber() throws IOException {
 		/*      Variablen   deklaration */
 		int neueseite = 1;
@@ -198,6 +254,12 @@ public class createpdf {
 		return pageCount;
 	}
 	
+	/**
+	 * Gets the image count.
+	 *
+	 * @return the image count
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public static int getImageCount() throws IOException {
 		/*      Variablen   deklaration */
 		ReadExcel excelTabelle = new ReadExcel();
@@ -207,6 +269,12 @@ public class createpdf {
 		return count;
 	}
 	
+	/**
+	 * Gets the product header.
+	 *
+	 * @return the product header
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public static List<String> getProductHeader() throws IOException {
 		ReadExcel excelTabelle = new ReadExcel();
 		excelTabelle.setInputFile(excelfile);
@@ -215,6 +283,12 @@ public class createpdf {
 		return headerliste;
 	}
 	
+	/**
+	 * Gets the product list.
+	 *
+	 * @return the product list
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public static List<String> getProductList() throws IOException {
 		ReadExcel exceltabelle = new ReadExcel();
 		exceltabelle.setInputFile(excelfile);

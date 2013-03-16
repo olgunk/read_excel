@@ -1,24 +1,43 @@
+/*
+ * 
+ */
 package reader;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ReadExcel.
+ */
 public class ReadExcel {
+  
+  /** The input file. */
   private String inputFile;
+  
+  /**
+   * Sets the input file.
+   *
+   * @param inputFile the new input file
+   */
   public void setInputFile(String inputFile) { 
     this.inputFile = inputFile;
   }
   
 
 
+  /**
+   * Read.
+   *
+   * @throws IOException Signals that an I/O exception has occurred.
+   */
   public void read() throws IOException  {
 	  Sheet sheet = excselinhalt();
       String ZINT_BINARY="zint\\zint.exe";
@@ -43,6 +62,12 @@ public class ReadExcel {
        }
   }
   
+  /**
+   * Gets the excel tabelle count.
+   *
+   * @param sheet the sheet
+   * @return the excel tabelle count
+   */
   public int getExcelTabelleCount(Sheet sheet) {
 	  String barcode = "";
 	  int count = 0;
@@ -59,6 +84,14 @@ public class ReadExcel {
 	  return count;
   }
   
+  /**
+   * Gets the excel tabelle ein eintrag.
+   *
+   * @param sheet the sheet
+   * @param x the x
+   * @param y the y
+   * @return the excel tabelle ein eintrag
+   */
   public String getExcelTabelleEinEintrag(Sheet sheet, int x, int y) {
 	  Cell temp = sheet.getCell(x, y);
 	  String content = temp.getContents();
@@ -66,6 +99,12 @@ public class ReadExcel {
   }
 
  
+	/**
+	 * Gets the excsel tabelle list.
+	 *
+	 * @param sheet the sheet
+	 * @return the excsel tabelle list
+	 */
 	public List<String> getExcselTabelleList(Sheet sheet) {
 		 String barcode = "";
 		 Cell temp;
@@ -82,6 +121,12 @@ public class ReadExcel {
 		 return headers;
 	}
  
+ /**
+  * Gets the product header.
+  *
+  * @param sheet the sheet
+  * @return the product header
+  */
  public List<String> getProductHeader(Sheet sheet) {
 	 String barcode = "";
 	 Cell temp;
@@ -98,6 +143,12 @@ public class ReadExcel {
 	 return headers;
  }
   
+  /**
+   * Excselinhalt.
+   *
+   * @return the sheet
+   * @throws IOException Signals that an I/O exception has occurred.
+   */
   public Sheet excselinhalt() throws IOException {
 	  Sheet sheet = null;
 	    File inputWorkbook = new File(inputFile);
